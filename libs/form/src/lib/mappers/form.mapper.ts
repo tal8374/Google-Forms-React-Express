@@ -1,5 +1,5 @@
 import { FormWhereParams, IForm, FormDTO } from '../types';
-import { Mapper } from '@google-forms/types';
+import { Mapper } from '@google-forms/shared';
 
 export class FormMapper implements Mapper<IForm, FormDTO> {
   constructor(private params: FormWhereParams[] = []) {}

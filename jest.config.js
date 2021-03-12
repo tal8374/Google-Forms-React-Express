@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/form',
     '<rootDir>/libs/db-mongo',
     '<rootDir>/libs/types',
+    '<rootDir>/libs/shared',
   ],
 };

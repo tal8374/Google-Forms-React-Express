@@ -18,7 +18,7 @@
       "@google-forms/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@google-forms/form": ["libs/form/src/index.ts"],
       "@google-forms/db-mongo": ["libs/db-mongo/src/index.ts"],
-      "@google-forms/types": ["libs/types/src/index.ts"]
+      "@google-forms/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

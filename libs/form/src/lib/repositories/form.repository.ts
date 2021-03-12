@@ -1,6 +1,6 @@
 import { FormModel } from '../models';
 import { FormCreateParams, FormDTO, FormWhereParams, IForm } from '../types';
-import { Mapper } from '@google-forms/types';
+import { Mapper } from '@google-forms/shared';
 
 export class FormRepository {
   static async create(
@@ -21,7 +21,7 @@ export class FormRepository {
       updateParmas
     );
 
-    return result.ok;
+    return !!result.ok;
   }
 
   static async delete(mapper: Mapper<IForm, FormDTO>) {
@@ -29,7 +29,7 @@ export class FormRepository {
   }
 
   static async getAll(mapper: Mapper<IForm, FormDTO>) {
-    const results = await FormModel.find({});
+    const results = await FormModel.find(mapper.getConditions());
 
     return results.map((result) => mapper.map(result as IForm));
   }

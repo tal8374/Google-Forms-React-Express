@@ -25,6 +25,7 @@
     "api-interfaces": { "tags": [] },
     "form": { "tags": [] },
     "db-mongo": { "tags": [] },
-    "types": { "tags": [] }
+    "types": { "tags": [] },
+    "shared": { "tags": [] }
   }
 }
