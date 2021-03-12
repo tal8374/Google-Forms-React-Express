@@ -33,4 +33,13 @@ export class FormRepository {
 
     return results.map((result) => mapper.map(result as IForm));
   }
+  static async get(mapper: Mapper<IForm, FormDTO>) {
+    const result = await FormModel.findOne(mapper.getConditions());
+
+    if (!result) {
+      return null;
+    }
+
+    return mapper.map(result as IForm);
+  }
 }

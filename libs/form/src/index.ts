@@ -1,4 +1,4 @@
-export { FormSelector } from './lib/selectors';
+export { FormSelector, FormsSelector } from './lib/selectors';
 export { FormUpdetor } from './lib/updetors';
 export { FormErasor } from './lib/erasors';
 export { FormRepository } from './lib/repositories';

@@ -35,3 +35,11 @@ export const deleteFormSchemaParams = yup
   .shape<DeleteFormSchemaParams>({
     formId: yup.string().required(),
   });
+
+export type GetFormSchemaParams = {
+  formId: string;
+};
+
+export const getFormSchemaParams = yup.object().shape<GetFormSchemaParams>({
+  formId: yup.string().required(),
+});

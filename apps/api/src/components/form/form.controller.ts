@@ -4,18 +4,30 @@ import {
   FormSelector,
   FormErasor,
   FormUpdetor,
+  FormsSelector,
 } from '@google-forms/form';
 import { FormTransformer } from './form.tranformer';
 import { CreateFormSchemaBody } from '.';
 import {
   DeleteFormSchemaParams,
+  GetFormSchemaParams,
   UpdateFormSchemaBody,
   UpdateFormSchemaParams,
 } from './form.schema';
 
 export class FormController {
+  async get(req: Request, res: Response) {
+    const { formId } = req.params as GetFormSchemaParams;
+
+    const result = await FormSelector.select([{ id: formId }]);
+
+    res.status(200).send({
+      data: FormTransformer.transform(result),
+    });
+  }
+
   async getList(req: Request, res: Response) {
-    const results = await FormSelector.select();
+    const results = await FormsSelector.select();
 
     res.status(200).send({
       data: results.map((result) => FormTransformer.transform(result)),

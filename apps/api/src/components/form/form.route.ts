@@ -3,6 +3,7 @@ import { FormController, createFormSchemaBody } from '.';
 import { runRouteValidator } from '@google-forms/shared';
 import {
   deleteFormSchemaParams,
+  getFormSchemaParams,
   updateFormSchemaBody,
   updateFormSchemaParams,
 } from './form.schema';
@@ -40,6 +41,16 @@ router.patch(
     },
   }),
   controller.update
+);
+
+router.get(
+  '/forms/:formId',
+  runRouteValidator({
+    params: {
+      schema: getFormSchemaParams,
+    },
+  }),
+  controller.get
 );
 
 export default router;
