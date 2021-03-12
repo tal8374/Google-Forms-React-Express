@@ -187,6 +187,25 @@
           }
         }
       }
+    },
+    "db-mongo": {
+      "root": "libs/db-mongo",
+      "sourceRoot": "libs/db-mongo/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/db-mongo/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/db-mongo"],
+          "options": {
+            "jestConfig": "libs/db-mongo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

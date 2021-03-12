@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/google-forms',
     '<rootDir>/apps/api',
     '<rootDir>/libs/form',
+    '<rootDir>/libs/db-mongo',
   ],
 };

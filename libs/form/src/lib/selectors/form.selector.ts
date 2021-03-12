@@ -1,5 +1,7 @@
+import { FormRepository } from '../repositories';
+
 export class FormSelector {
-  select() {
-    return [];
+  async select() {
+    return FormRepository.getAll();
   }
 }
