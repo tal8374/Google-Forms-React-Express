@@ -12,6 +12,10 @@ export class FormRepository {
     return mapper.map(result as IForm);
   }
 
+  static async delete(mapper: Mapper<IForm, FormDTO>) {
+    return FormModel.deleteMany(mapper.getConditions());
+  }
+
   static async getAll(mapper: Mapper<IForm, FormDTO>) {
     const results = await FormModel.find({});
 

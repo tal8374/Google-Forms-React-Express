@@ -15,6 +15,8 @@ export class FormMapper implements Mapper<IForm, FormDTO> {
   public getConditions() {
     const { params } = this;
 
-    return params.length === 0 ? {} : { $or: params };
+    return params.length === 0
+      ? {}
+      : { $or: params.map(({ id, ...rest }) => ({ _id: id, ...rest })) };
   }
 }

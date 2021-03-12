@@ -9,7 +9,7 @@ export interface FormDocument extends Omit<IForm, '_id'>, Document<ObjectId> {}
 export type IFormModel = Model<FormDocument>;
 
 export type FormDTO = {
-  id: ObjectId;
+  id: ObjectId | string;
 };
 
 export type FormWhereParams = Partial<FormDTO>;
