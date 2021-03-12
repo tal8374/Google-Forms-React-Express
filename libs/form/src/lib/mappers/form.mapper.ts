@@ -5,10 +5,12 @@ export class FormMapper implements Mapper<IForm, FormDTO> {
   constructor(private params: FormWhereParams[] = []) {}
 
   public map(Form: IForm) {
-    const { _id } = Form;
+    const { _id, createdAt, title } = Form;
 
     return {
       id: _id,
+      createdAt,
+      title,
     };
   }
 

@@ -2,8 +2,8 @@ import { FormDTO } from '@google-forms/form';
 
 export class FormTransformer {
   static transform(dto: FormDTO) {
-    const { id } = dto;
+    const { id, createdAt, title } = dto;
 
-    return { id };
+    return { id, createdAt, title };
   }
 }

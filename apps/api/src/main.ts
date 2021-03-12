@@ -1,8 +1,11 @@
 import * as express from 'express';
 import { routes } from './routes';
 import { connectMongoDB } from '@google-forms/db-mongo';
+import * as bodyParser from 'body-parser';
 
 const app = express();
+
+app.use(bodyParser.json());
 
 routes.privateRoutes.forEach((route) => {
   app.use('/', route);

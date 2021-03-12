@@ -9,5 +9,6 @@ const router = express.Router();
 router.get('/forms', controller.getList);
 router.post('/forms', controller.create);
 router.delete('/forms/:formId', controller.delete);
+router.patch('/forms/:formId', controller.update);
 
 export default router;

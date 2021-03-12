@@ -1,5 +1,10 @@
 import { Request, Response } from 'express';
-import { FormCreator, FormSelector, FormErasor } from '@google-forms/form';
+import {
+  FormCreator,
+  FormSelector,
+  FormErasor,
+  FormUpdetor,
+} from '@google-forms/form';
 import { FormTransformer } from './form.tranformer';
 
 export class FormController {
@@ -15,6 +20,15 @@ export class FormController {
     const result = await FormCreator.create(req.body);
 
     res.status(200).send({ data: FormTransformer.transform(result) });
+  }
+
+  async update(req: Request, res: Response) {
+    const result = await FormUpdetor.update(
+      [{ id: req.params.formId }],
+      req.body
+    );
+
+    res.status(200).send({ data: result });
   }
 
   async delete(req: Request, res: Response) {

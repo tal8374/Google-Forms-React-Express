@@ -1,5 +1,5 @@
 import { FormModel } from '../models';
-import { FormCreateParams, FormDTO, IForm } from '../types';
+import { FormCreateParams, FormDTO, FormWhereParams, IForm } from '../types';
 import { Mapper } from '@google-forms/types';
 
 export class FormRepository {
@@ -10,6 +10,18 @@ export class FormRepository {
     const result = await FormModel.create(parmas);
 
     return mapper.map(result as IForm);
+  }
+
+  static async update(
+    mapper: Mapper<IForm, FormDTO>,
+    updateParmas: FormWhereParams
+  ) {
+    const result = await FormModel.updateMany(
+      mapper.getConditions(),
+      updateParmas
+    );
+
+    return result.ok;
   }
 
   static async delete(mapper: Mapper<IForm, FormDTO>) {
