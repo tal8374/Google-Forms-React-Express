@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "google-forms",
   "generators": {
     "@nrwl/react": {
@@ -11,13 +9,8 @@
         "linter": "eslint",
         "babel": true
       },
-      "component": {
-        "style": "styled-components"
-      },
-      "library": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
+      "component": { "style": "styled-components" },
+      "library": { "style": "styled-components", "linter": "eslint" }
     }
   },
   "projects": {
@@ -75,9 +68,7 @@
             "proxyConfig": "apps/google-forms/proxy.conf.json"
           },
           "configurations": {
-            "production": {
-              "buildTarget": "google-forms:build:production"
-            }
+            "production": { "buildTarget": "google-forms:build:production" }
           }
         },
         "lint": {
@@ -109,9 +100,7 @@
             "devServerTarget": "google-forms:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "google-forms:serve:production"
-            }
+            "production": { "devServerTarget": "google-forms:serve:production" }
           }
         },
         "lint": {
@@ -153,15 +142,11 @@
         },
         "serve": {
           "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
+          "options": { "buildTarget": "api:build" }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -180,8 +165,25 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/api-interfaces/**/*.ts"] }
+        }
+      }
+    },
+    "form": {
+      "root": "libs/form",
+      "sourceRoot": "libs/form/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/form/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/form"],
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "jestConfig": "libs/form/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
