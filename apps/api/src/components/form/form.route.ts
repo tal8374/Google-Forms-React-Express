@@ -6,6 +6,7 @@ const controller = new FormController();
 
 const router = express.Router();
 
-router.get('/', controller.getList);
+router.get('/forms', controller.getList);
+router.post('/forms', controller.create);
 
 export default router;

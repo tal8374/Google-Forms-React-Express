@@ -1,17 +1,20 @@
 import { FormModel } from '../models';
-import { FormMapper } from '../mappers';
-import { IForm } from '../types';
+import { FormCreateParams, FormDTO, IForm } from '../types';
+import { Mapper } from '@google-forms/types';
 
 export class FormRepository {
-  static async create() {
-    await FormModel.create({});
+  static async create(
+    mapper: Mapper<IForm, FormDTO>,
+    parmas: FormCreateParams
+  ) {
+    const result = await FormModel.create(parmas);
+
+    return mapper.map(result as IForm);
   }
 
-  static async getAll() {
+  static async getAll(mapper: Mapper<IForm, FormDTO>) {
     const results = await FormModel.find({});
 
-    const formMapper = new FormMapper();
-
-    return results.map((result) => formMapper.map(result as IForm));
+    return results.map((result) => mapper.map(result as IForm));
   }
 }

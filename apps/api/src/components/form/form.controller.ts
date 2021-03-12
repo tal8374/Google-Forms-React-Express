@@ -1,12 +1,19 @@
 import { Request, Response } from 'express';
-import { FormSelector } from '@google-forms/form';
+import { FormCreator, FormSelector } from '@google-forms/form';
+import { FormTransformer } from './form.tranformer';
 
 export class FormController {
   async getList(req: Request, res: Response) {
-    const formSelector = new FormSelector();
+    const results = await FormSelector.select();
 
-    const results = await formSelector.select();
+    res.status(200).send({
+      data: results.map((result) => FormTransformer.transform(result)),
+    });
+  }
 
-    res.status(200).send(results);
+  async create(req: Request, res: Response) {
+    const result = await FormCreator.create(req.body);
+
+    res.status(200).send({ data: FormTransformer.transform(result) });
   }
 }

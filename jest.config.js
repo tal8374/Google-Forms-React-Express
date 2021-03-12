@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/libs/form',
     '<rootDir>/libs/db-mongo',
+    '<rootDir>/libs/types',
   ],
 };
