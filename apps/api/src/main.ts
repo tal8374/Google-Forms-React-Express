@@ -1,12 +1,10 @@
 import * as express from 'express';
-import { Message } from '@google-forms/api-interfaces';
+import { routes } from './routes';
 
 const app = express();
 
-const greeting: Message = { message: 'Welcome to api!' };
-
-app.get('/api', (req, res) => {
-  res.send(greeting);
+routes.privateRoutes.forEach((route) => {
+  app.use('/', route);
 });
 
 const port = process.env.port || 3333;
